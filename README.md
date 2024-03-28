@@ -1,27 +1,46 @@
-# TokenFrontend
+# Angular Material Token Tracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+This project is a simple Angular frontend application that interacts with a backend ASP.NET Web API to track token data. It provides three main pages: Login, Info, and Update.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Login Page**: Allows users to authenticate. It includes validation to prevent empty input data.
+- **Info Page**: Displays the current token data fetched from the backend. It formats token amounts from wei and displays them in separate cards for Name, Total Supply, and Circulating Supply.
+- **Update Page**: Available only to authenticated users. Contains a button to update the token data on the backend.
 
-## Code scaffolding
+## Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular: Frontend framework
+- Angular Material: UI component library for Angular
+- ASP.NET Web API: Backend API for token data management
+- Entity Framework: Data access layer with Code First approach
+- JWT-based Authentication: Secures endpoints with JWT tokens
+- RxJS: Reactive Extensions for JavaScript for handling asynchronous data streams
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clone the repository:
+      ```
+   git clone https://github.com/saraheisa/token-frontend.git
+      ```
 
-## Running unit tests
+3. Install dependencies:
+   ```
+   cd token-frontend
+   npm install
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4. Start the Angular development server:
+   ```
+   ng serve
+   ```
 
-## Running end-to-end tests
+6. Open the application in your browser:
+   Navigate to `http://localhost:4200/` to access the application.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Usage
 
-## Further help
+- **Login Page**: Enter any username and password to login. Validation prevents empty input data.
+- **Info Page**: Displays the current token data fetched from the backend. Token amounts are formatted from wei.
+- **Update Page**: Available only to authenticated users. Click the "Update Token Data" button to update the token data on the backend.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
