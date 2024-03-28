@@ -1,0 +1,15 @@
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: wrap;
+  gap: 1em;
+  margin-top: 20rem;
+}
+
+.card-container {
+}
+
+.info-card {
+  width: 300px;
+}

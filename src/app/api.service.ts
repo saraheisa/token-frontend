@@ -21,7 +21,16 @@ export class APIService {
   updateTokenData(): Observable<any> {
     const token = localStorage.getItem(STORAGE_KEY);
     if (token) {
-      return this.http.post<any>(`${this.apiUrl}`, {});
+      return this.http.post<any>(
+        `${this.apiUrl}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
     }
     return throwError(() => new Error('Not logged in'));
   }

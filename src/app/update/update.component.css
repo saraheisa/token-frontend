@@ -1,0 +1,11 @@
+.center-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.huge-button {
+  font-size: 2rem;
+  padding: 3rem;
+}

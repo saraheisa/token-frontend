@@ -1,5 +1,32 @@
-<div *ngIf="tokenData">
-  <p>Name: {{ tokenData.name }}</p>
-  <p>Total Supply: {{ tokenData.totalSupply }}</p>
-  <p>Circulating Supply: {{ tokenData.circulatingSupply }}</p>
+<div class="center-container">
+  <div class="card-container">
+    <mat-card class="info-card">
+      <mat-card-header>
+        <mat-card-title>Name</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ tokenData.name }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="card-container">
+    <mat-card class="info-card">
+      <mat-card-header>
+        <mat-card-title>Total Supply</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ tokenData.totalSupply }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="card-container">
+    <mat-card class="info-card">
+      <mat-card-header>
+        <mat-card-title>Circulating Supply</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ tokenData.circulatingSupply }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
