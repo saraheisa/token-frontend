@@ -1,0 +1,19 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.list-items {
+  display: flex;
+  align-items: center;
+  flex: auto;
+  max-width: 360px;
+}
+
+a {
+  text-decoration: none;
+}

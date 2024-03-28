@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { APIService } from '../api.service';
 import {
   FormControl,
   FormGroup,
@@ -13,6 +12,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../auth.service';
 
 @Component({
   standalone: true,
@@ -33,7 +35,11 @@ import { MatCardModule } from '@angular/material/card';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private apiService: APIService) {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {
     this.loginForm = new FormGroup({
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
@@ -41,19 +47,21 @@ export class LoginComponent {
   }
 
   login() {
-    if (!this.loginForm.get('username') || !this.loginForm.get('password'))
-      return;
-    console.log({ form: this.loginForm });
-    this.apiService
+    if (!this.loginForm.valid) return;
+
+    this.authService
       .login(this.loginForm.value.username, this.loginForm.value.password)
-      .subscribe(
-        (response) => {
-          // Handle successful login, store token, navigate to other pages, etc.
+      .subscribe({
+        next: (response) => {
+          this.router.navigate(['/info']);
         },
-        (error) => {
+        error: (error) => {
           console.error('Login failed:', error);
-          // Handle login failure, show error message, etc.
-        }
-      );
+          this.snackBar.open(
+            error.message || 'An unexpected error occurred.',
+            'Close'
+          );
+        },
+      });
   }
 }

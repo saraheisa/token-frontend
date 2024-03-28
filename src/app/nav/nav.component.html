@@ -1,7 +1,30 @@
-<nav>
-  <ul>
-    <li><a [routerLink]="['/login']">Login</a></li>
-    <li><a [routerLink]="['/']">Info</a></li>
-    <li><a [routerLink]="['/update']">Update</a></li>
-  </ul>
-</nav>
+<mat-toolbar class="toolbar">
+  <a routerLink="/info">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="app icon"
+      fontIcon="home"
+    ></mat-icon>
+    <span>BLB Token</span>
+  </a>
+
+  <div class="spacer"></div>
+
+  <mat-nav-list class="list-items">
+    @for (route of routes; track route) {
+    <a
+      *ngIf="
+        route.isLoggedInRequired === undefined ||
+        route.isLoggedInRequired === isLoggedIn
+      "
+      mat-list-item
+      [href]="route.path"
+      [activated]="isActiveRoute(route.path)"
+      >{{ route.label }}</a
+    >
+    }
+    <mat-list-item *ngIf="isLoggedIn">
+      <a mat-button (click)="(logout)">Logout</a>
+    </mat-list-item>
+  </mat-nav-list>
+</mat-toolbar>

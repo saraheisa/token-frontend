@@ -1,17 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { environment } from '../environments/environment';
+import { STORAGE_KEY } from './app.constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class APIService {
-  private apiUrl = 'http://localhost:5204/api/token'; // Update with your actual backend URL
+  private apiUrl = '';
 
-  constructor(private http: HttpClient) {}
-
-  login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, { username, password });
+  constructor(private http: HttpClient) {
+    this.apiUrl = environment.apiUrl + '/token';
   }
 
   getTokenData(): Observable<any> {
@@ -19,6 +19,10 @@ export class APIService {
   }
 
   updateTokenData(): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}`, {});
+    const token = localStorage.getItem(STORAGE_KEY);
+    if (token) {
+      return this.http.post<any>(`${this.apiUrl}`, {});
+    }
+    return throwError(() => new Error('Not logged in'));
   }
 }

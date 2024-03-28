@@ -9,7 +9,7 @@
           formControlName="username"
           placeholder="Username"
         />
-        <mat-error *ngIf="loginForm.hasError('username')">
+        <mat-error *ngIf="loginForm.controls['username'].errors">
           Username is required
         </mat-error>
       </mat-form-field>
@@ -20,11 +20,18 @@
           formControlName="password"
           placeholder="Password"
         />
-        <mat-error *ngIf="loginForm.hasError('password')">
+        <mat-error *ngIf="loginForm.controls['password'].errors">
           Password is required
         </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Login</button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!loginForm.valid"
+      >
+        Login
+      </button>
     </form>
   </mat-card-content>
 </mat-card>
