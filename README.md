@@ -2,6 +2,9 @@
 
 This project is a simple Angular frontend application that interacts with a backend ASP.NET Web API to track token data. It provides three main pages: Login, Info, and Update.
 
+## Demo
+[Demo link](https://master--helpful-sunburst-4fbe90.netlify.app)
+
 ## Features
 
 - **Login Page**: Allows users to authenticate. It includes validation to prevent empty input data.
