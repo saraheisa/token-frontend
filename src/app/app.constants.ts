@@ -1,1 +1,1 @@
-export const STORAGE_KEY = 'BLBToken-auth-token';
+export const STORAGE_KEY = 'BLPToken-auth-token';
