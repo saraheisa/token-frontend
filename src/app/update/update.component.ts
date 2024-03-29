@@ -12,6 +12,8 @@ import { MatButton } from '@angular/material/button';
   styleUrl: './update.component.css',
 })
 export class UpdateComponent {
+  updating = false;
+
   constructor(
     private apiService: APIService,
     private snackBar: MatSnackBar,
@@ -19,6 +21,7 @@ export class UpdateComponent {
   ) {}
 
   updateTokenData() {
+    this.updating = true;
     this.apiService.updateTokenData().subscribe({
       next: (response) => {
         this.snackBar.open('Token data updated successfully', 'Close');
@@ -30,6 +33,9 @@ export class UpdateComponent {
           error.message || 'Failed to update token data',
           'Close'
         );
+      },
+      complete: () => {
+        this.updating = false;
       },
     });
   }

@@ -28,9 +28,19 @@ export class NavComponent implements OnDestroy {
   private authSubscription: Subscription;
 
   routes = [
-    { path: '/info', label: 'Info' },
-    { path: '/update', label: 'Update', isLoggedInRequired: true },
-    { path: '/login', label: 'Login', isLoggedInRequired: false },
+    { path: '/info', label: 'Info', icon: 'info' },
+    {
+      path: '/update',
+      label: 'Update',
+      isLoggedInRequired: true,
+      icon: 'sync',
+    },
+    {
+      path: '/login',
+      label: 'Login',
+      isLoggedInRequired: false,
+      icon: 'fingerprint',
+    },
   ];
 
   constructor(private authService: AuthService, private router: Router) {

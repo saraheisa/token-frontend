@@ -17,4 +17,11 @@
 a {
   text-decoration: none;
   text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.list-items--content {
+  display: flex;
+  gap: 5px;
 }

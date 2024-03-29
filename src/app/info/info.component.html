@@ -2,30 +2,39 @@
   <div class="card-container">
     <mat-card class="info-card">
       <mat-card-header>
-        <mat-card-title>Name</mat-card-title>
+        <mat-card-title
+          ><mat-icon color="primary">bubble_chart</mat-icon>
+          Name</mat-card-title
+        >
       </mat-card-header>
       <mat-card-content>
-        <p>{{ tokenData.name }}</p>
+        <p>{{ tokenData?.name }}</p>
       </mat-card-content>
     </mat-card>
   </div>
   <div class="card-container">
     <mat-card class="info-card">
       <mat-card-header>
-        <mat-card-title>Total Supply</mat-card-title>
+        <mat-card-title>
+          <mat-icon color="primary">money</mat-icon> Total
+          Supply</mat-card-title
+        >
       </mat-card-header>
       <mat-card-content>
-        <p>{{ tokenData.totalSupply }}</p>
+        <p>{{ tokenData?.totalSupply }}</p>
       </mat-card-content>
     </mat-card>
   </div>
   <div class="card-container">
     <mat-card class="info-card">
       <mat-card-header>
-        <mat-card-title>Circulating Supply</mat-card-title>
+        <mat-card-title
+          ><mat-icon color="primary">account_balance</mat-icon> Circulating
+          Supply</mat-card-title
+        >
       </mat-card-header>
       <mat-card-content>
-        <p>{{ tokenData.circulatingSupply }}</p>
+        <p>{{ tokenData?.circulatingSupply }}</p>
       </mat-card-content>
     </mat-card>
   </div>

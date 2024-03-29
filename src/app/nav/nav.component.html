@@ -1,9 +1,9 @@
 <mat-toolbar class="toolbar">
-  <a routerLink="/info">
+  <a routerLink="/info" class="nav-item">
     <mat-icon
       aria-hidden="false"
       aria-label="app icon"
-      fontIcon="home"
+      fontIcon="attach_money"
     ></mat-icon>
     <span>BLB Token</span>
   </a>
@@ -20,11 +20,18 @@
       mat-list-item
       [href]="route.path"
       [activated]="isActiveRoute(route.path)"
-      >{{ route.label }}</a
+      ><div class="list-items--content">
+        <mat-icon color="primary">{{ route.icon }}</mat-icon>
+        {{ route.label }}
+      </div></a
     >
     }
     <mat-list-item *ngIf="isLoggedIn">
-      <a mat-button (click)="logout()">Logout</a>
+      <a mat-button (click)="logout()">
+        <div class="list-items--content">
+          <mat-icon color="primary">eject</mat-icon> Logout
+        </div></a
+      >
     </mat-list-item>
   </mat-nav-list>
 </mat-toolbar>

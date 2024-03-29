@@ -1,5 +1,8 @@
 <mat-card class="login-card">
-  <mat-card-title>Login</mat-card-title>
+  <mat-card-title style="align-items: center">
+    <mat-icon color="primary">fingerprint</mat-icon>
+    Login
+  </mat-card-title>
   <mat-card-content>
     <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
       <mat-form-field>
