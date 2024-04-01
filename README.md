@@ -1,4 +1,4 @@
-# Angular Material Token Tracker
+# BLP Token Tracker
 
 This project is a simple Angular frontend application that interacts with a backend ASP.NET Web API to track token data. It provides three main pages: Login, Info, and Update.
 
